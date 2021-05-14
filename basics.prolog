@@ -1,11 +1,9 @@
 :- use_module(library(clpfd)).
 :- use_module(library(clpq)).
 
-% MINING
+:- [recipes]
 
-node(impure, 30).
-node(normal, 60).
-node(pure, 120).
+% MINING
 
 miner(mk1, [Purity, In], N, Out) :- 
     node(Purity, X),
@@ -21,8 +19,6 @@ mining([Tier, Purity, In, N], Out) :-
     miner(Tier, [Purity, In], N, Out).
 
 % SMELTING
-
-ingot(iron, 30, 30).
 
 smelter([Type, In], N, Out) :-
     ingot(Type, X, Y),
