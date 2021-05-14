@@ -1,2 +1,2 @@
 # satisfactory-production-planner
-Prolog solver for statisfactory production chains
+Prolog solver for satisfactory production chains
