@@ -20,10 +20,17 @@ mining([Tier, Purity, In, N], Out) :-
 
 % SMELTING
 
-smelter([Type, In], N, Out) :-
-    ingot(Type, X, Y),
+smelter(Recipe, Variant, In, N, Out) :-
+    call(Recipe, Variant, [X|_], [Y|_]),
     {In = N * X},
     {Out = N * Y}.
 
-smelting([Type, In, N], Out) :-
-    smelter([Type, In], N, Out).
+smelting([Recipe, Variant, In, N], Out) :-
+    smelter(Recipe, Variant, In, N, Out).
+
+% CONSTRUCTOR
+
+constructor(Recipe, Variant, In, N, Out) :- 
+    call(Recipe, Variant, [X|_], [Y|_]),
+    {In = X * N},
+    {Out = Y * N}.
