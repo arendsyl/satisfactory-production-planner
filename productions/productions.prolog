@@ -1,4 +1,4 @@
 :- [iron_ingots].
 :- [iron_ores].
 :- [plates].
-:- [rods].
+:- [iron_rods].
